@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleRunTimeException(Exception exception) {
         ApiError error = ApiError.builder()
-                .status(HttpStatus.NOT_FOUND.value())
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
                 .message(exception.getMessage())
                 .timestamp(LocalDateTime.now())
                 .build();
