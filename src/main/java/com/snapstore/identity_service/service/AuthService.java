@@ -34,7 +34,7 @@ public class AuthService {
         User user = userRepository.save(newUser);
 
         String accessToken = jwtService.generateToken(user.getEmail());
-        System.out.println(accessToken);
+
         return SignupResponse.builder().accessToken(accessToken).build();
     }
 
