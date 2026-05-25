@@ -28,6 +28,12 @@ public class UserService implements UserDetailsService {
                 .builder()
                 .username(user.getEmail())
                 .password(user.getPassword())
+                .authorities(
+                        user.getRoles()
+                                .stream()
+                                .map(role -> role.getName().name())
+                                .toArray(String[]::new)
+                )
                 .build();
     }
 
